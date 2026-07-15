@@ -46,3 +46,112 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/***********************************
+            main styles
+***********************************/
+.container{
+    background:yellowgreen;
+    max-width:960px; /* max-width ensures your site won't expand forever */
+    margin:0 auto; /* margin auto on the left and right centers the object on the screen */
+}
+
+header{
+    background:rgb(127, 9, 201);
+    height:300px;
+    display:flex; /* can be used to center things vertically and horizontally */
+    justify-content:center; /* jutify-content affects the main flex axis */
+    align-items:center; /* align-items affects the cross axis */
+}
+
+h1{
+    font-size:36px;
+    font-weight:bold;
+    color:white;
+}
+
+/* this targets only the anchor (a) tags in the nav, so not any other link
+on your page */
+nav a{
+    display: block; /* so we give them a width, height, and make the
+    look like buttons */
+    background:hsl(0, 57%, 71%);
+    border-top:1px solid hsl(0, 100%, 42%);
+    border-bottom:1px solid hsl(0, 100%, 41%);
+    padding:1em 0; /* two values means: top-bottom, left-right */
+    text-align:center;
+    text-decoration:none;
+}
+
+/*and a hover and an active state - hover for anything with a cursor, active
+for the touch screens */
+nav a:hover, nav a:active{
+    background: hsl(263, 68%, 46%);
+}
+
+main{
+    display:flex;
+    /* you can teel the content to wrap if it runs out of space */
+    flex-wrap:wrap;
+}
+
+main div{
+    border:1px solid black;
+    background:lightskyblue;
+    /* flexbox can still have maargin and padding on items */
+    margin:1em;
+    padding:1em;
+
+    flex-grow:1; /* flex-grow (and flex-shrink) always grow and shrink relative to
+    the content inside the object */
+
+    flex-basis:0; /* this tells flex-grow to ignore the object's content */
+}
+
+main div:nth-child(2){
+    flex-grow:2;
+}
+
+/***********************************
+            media queries
+***********************************/
+
+/* set up a break point to transition to a more horizonntal layout */
+@media screen and (min-width:760px){
+    /* these styles will only apply when the screen is 760px or wider */
+    
+    nav ul{
+        /* use display:flex to make the li sit next to each other
+        you have to put display:flex on the container, or the parent,
+        of the things you want to affect */
+        display:flex;
+
+        /*justify-content contronls how the objects flex, or they display */
+        justify-content:space-around;
+    }
+
+    /* you can also control properties on the flex items (the children),
+    including how they grow or shrink to use the space */
+    nav li{
+        flex-grow:1; /*makes them all grow to be the same size */
+    }
+
+    footer{
+        display:flex;
+    }
+
+    footer div{
+        border-left:1px solid black;
+        border-right:1px solid black;
+        flex-grow:1;
+    }
+
+    footer div.footnav{
+        /* use flex-grow to make the secondary navigation take up more space,
+        and move around frome its original order */
+        flex-grow:2; /* flex-grow is a ratio on all objects - since the others
+        all have a flex-grow of 1, this takes up twice as much space */
+        order:2; /* all objects have a default order of 1, setting them higher will move
+        the objects towards the end of the flex */
+    }
+}

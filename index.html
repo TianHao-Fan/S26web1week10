@@ -3,9 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/flex.css" rel="stylesheet">
     <title>Week 10 Flexbox</title>
 </head>
 <body>
-    
+    <!-- a container div (that contains all the contents of your sit) lets
+     you limit the width of you site, and style the site separate from the body-->
+    <div class="container">
+        <header>
+            <!-- there should only be 1 h1 tag per HTML page -->
+            <h1>CSS Flexbox</h1>
+        </header>
+        <nav>
+            <!-- using a ul for navigation gives you more elements to style,
+            and more flexibility when doing responsive design-->
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Stuff</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div>One</div>
+            <div>Two - this is the second div with a lot of extra content</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+        </main>
+        <footer>
+            <div class="footnav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Stuff</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="copy">
+                <p>&copy; my stuff 2026</p>
+            </div>
+            <div class="contact">
+                <p>contact me here</p>
+                <input type="text">
+            </div>
+        </footer>    
+    </div>
 </body>
 </html>
